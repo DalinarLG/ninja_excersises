@@ -14,10 +14,11 @@ func main() {
 	}
 	fmt.Println(string(bytes))
 
-	login := `123456`
-	err = bcrypt.CompareHashPassword(bytes, []byte(login))
+	login := `1234568`
+	err = bcrypt.CompareHashAndPassword(bytes, []byte(login))
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println(err.Error())
+		return
 	}
 	fmt.Println("login success")
 
